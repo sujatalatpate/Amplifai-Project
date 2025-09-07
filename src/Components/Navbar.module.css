@@ -1,0 +1,73 @@
+
+.sidebar {
+  width: 70px;
+  height: 100vh;
+  background-color: #1e1e2f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+}
+
+.logo {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.navLinks {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLinks a {
+  color: #aaa;
+  font-size: 1.4rem;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.navLinks a:hover,
+.active {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.bottom {
+  margin-bottom: 1.5rem;
+}
+
+.logoutBtn,
+.loginBtn {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.logoutBtn:hover,
+.loginBtn:hover {
+  color: #fff;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo img {
+  width: 28px;   /* 👈 make it smaller (try 24–32px) */
+  height: auto;
+  object-fit: contain;
+}

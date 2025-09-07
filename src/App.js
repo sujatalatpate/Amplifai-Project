@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Sidebar from "./Components/Navbar";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Companies from "./Pages/CompanyList/CompanyList";
+import CompanyDetails from "./Pages/CompanyDetails/ComapnyDetails";
+import AddCompany from "./Pages/AddCompany/AddCompany";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register.jsx/Register";
+import ForgetPassword from "./Pages/ForgotPassword/ForgotPassword";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+  const hideNavbar = ["/", "/login", "/register", "/forgot-password"].includes(location.pathname);
+
+  return (
+    <>
+      {!hideNavbar && <Sidebar />}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/companies" element={<Companies />} />
+        <Route path="/company/:id" element={<CompanyDetails />} />
+        <Route path="/add-company" element={<AddCompany />} />
+      </Routes>
+    </>
   );
 }
 
